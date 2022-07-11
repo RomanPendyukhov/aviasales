@@ -1,0 +1,46 @@
+@import '../../variable';
+
+.tabs {
+  display: grid;
+  grid-auto-flow: column;
+  box-shadow: $obj-shadow;
+  margin: 0 5px 0 0;
+  border-radius: 10px;
+  width: 502px;
+}
+
+.tab {
+  display: flex;
+  border: 1px solid #dfe5ec;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.tab:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tab:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.tab:hover {
+  cursor: pointer;
+  background: #2196f3;
+  border-color: #2196f3;
+  color: white;
+}
+
+.select {
+  background: #2196f3;
+  border-color: #2196f3;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .tabs {
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../variable';
+
+.ticket_list {
+  display: grid;
+  gap: 15px;
+  margin: 0 5px 0 0;
+}
+
+@media (max-width: 425px) {
+  .ticket_list {
+    gap: 10px;
+  }
+}
+
+.button {
+  background-color: $blue-background;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  height: 8vh;
+  max-height: 45px;
+  width: 100%;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .ticket_list {
+    width: 100%;
+  }
+}

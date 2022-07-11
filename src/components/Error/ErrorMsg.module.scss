@@ -1,0 +1,21 @@
+@import 'src/variable';
+
+.errorMsg {
+  width: 502px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 14px;
+  color: #d8000c;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: $obj-shadow;
+}
+
+@media (max-width: 800px) {
+  .errorMsg {
+    width: 100%;
+    margin: 0;
+  }
+}

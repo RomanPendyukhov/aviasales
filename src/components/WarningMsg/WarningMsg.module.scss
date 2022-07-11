@@ -1,0 +1,19 @@
+@import 'src/variable';
+
+.warning_msg {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: center;
+  color: #9f6000;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: $obj-shadow;
+}
+
+@media (max-width: 800px) {
+  .warning_msg {
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../variable';
+
+.app {
+  display: grid;
+  gap: 20px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  background-color: #e5e5e5;
+  grid-template-areas:
+    'header header'
+    'sidebar main';
+  grid-template-rows: 140px 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+@media (max-width: 800px) {
+  .app {
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+      'header header'
+      'sidebar sidebar'
+      'main main';
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    min-height: 0vh;
+  }
+}
