@@ -1,6 +1,6 @@
 ## Используемые технологии
 * **React** 
-* **Redux** 
-* **Redux-thunk** для ассинхронных _actions_
+* **Redux-toolkit** 
+
 
 https://aviasales-3oi0gjvrd-romanpendyukhov.vercel.app/
