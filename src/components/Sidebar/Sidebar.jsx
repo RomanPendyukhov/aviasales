@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Filter from '../Filter';
+import SidebarFilter from '../SidebarFilter';
 
 import styles from './Sidebar.module.scss';
 
 function Sidebar() {
   return (
     <div className={styles.sidebar}>
-      <Filter />
+      <SidebarFilter />
     </div>
   );
 }
