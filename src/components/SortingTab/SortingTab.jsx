@@ -72,7 +72,7 @@ function SortingTab() {
     <div className={styles.tabs}>
       {sortingTabs.map((el) => {
         return (
-          <div role="presentation" className={el.className} onClick={el.onClick}>
+          <div role="presentation" className={el.className} key={el.label} onClick={el.onClick}>
             <span>{el.label}</span>
           </div>
         );

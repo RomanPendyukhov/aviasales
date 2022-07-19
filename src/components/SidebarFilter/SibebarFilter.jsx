@@ -6,25 +6,29 @@ import { setValueFilterTicket, switchFilterAll } from '../../store/slices/filter
 import styles from './SidebarFilter.module.scss';
 
 function SidebarFilter() {
-  const [checkedAllTicket, setCheckedAllTicket] = useState(true);
-  const [checkedZero, setCheckedZero] = useState(true);
-  const [checkedOne, setCheckedOne] = useState(true);
-  const [checkedTwo, setCheckedTwo] = useState(true);
-  const [checkedThree, setCheckedThree] = useState(true);
+  const [checkedTransfers, setCheckedTransfers] = useState({
+    checkedAllTickets: true,
+    checkedZero: true,
+    checkedOne: true,
+    checkedTwo: true,
+    checkedThree: true,
+  });
+
+  const { checkedAllTickets, checkedZero, checkedOne, checkedTwo, checkedThree } = checkedTransfers;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (checkedZero && checkedOne && checkedTwo && checkedThree) {
-      setCheckedAllTicket(true);
+      setCheckedTransfers({ ...checkedTransfers, checkedAllTickets: true });
     } else {
-      setCheckedAllTicket(false);
+      setCheckedTransfers({ ...checkedTransfers, checkedAllTickets: false });
     }
   }, [checkedZero, checkedOne, checkedTwo, checkedThree]);
 
   useEffect(() => {
-    dispatch(switchFilterAll(checkedAllTicket));
-  }, [dispatch, checkedAllTicket]);
+    dispatch(switchFilterAll(checkedAllTickets));
+  }, [dispatch, checkedAllTickets]);
 
   useEffect(() => {
     dispatch(setValueFilterTicket({ isChecked: checkedZero, filterValue: 0 }));
@@ -45,26 +49,28 @@ function SidebarFilter() {
   const handleCheckboxChange = (event) => {
     switch (event.target.name) {
       case 'Zero':
-        setCheckedZero(event.target.checked);
+        setCheckedTransfers({ ...checkedTransfers, checkedZero: event.target.checked });
         break;
       case 'One':
-        setCheckedOne(event.target.checked);
+        setCheckedTransfers({ ...checkedTransfers, checkedOne: event.target.checked });
 
         break;
       case 'Two':
-        setCheckedTwo(event.target.checked);
+        setCheckedTransfers({ ...checkedTransfers, checkedTwo: event.target.checked });
 
         break;
       case 'Three':
-        setCheckedThree(event.target.checked);
+        setCheckedTransfers({ ...checkedTransfers, checkedThree: event.target.checked });
 
         break;
       default:
-        setCheckedAllTicket(event.target.checked);
-        setCheckedZero(event.target.checked);
-        setCheckedOne(event.target.checked);
-        setCheckedTwo(event.target.checked);
-        setCheckedThree(event.target.checked);
+        setCheckedTransfers({
+          checkedAllTickets: event.target.checked,
+          checkedZero: event.target.checked,
+          checkedOne: event.target.checked,
+          checkedTwo: event.target.checked,
+          checkedThree: event.target.checked,
+        });
     }
   };
 
@@ -73,7 +79,7 @@ function SidebarFilter() {
       label: 'Все',
       id: 'all',
       name: 'All',
-      checked: checkedAllTicket,
+      checked: checkedAllTickets,
       htmlFor: 'all',
     },
     {
@@ -111,7 +117,7 @@ function SidebarFilter() {
       <div className={styles.title}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
       {filters.map((el) => {
         return (
-          <div className={styles.wrapper}>
+          <div className={styles.wrapper} key={el.id}>
             <input
               type="checkbox"
               id={el.id}
